@@ -86,7 +86,7 @@ jqueryWidget: {
                 
                 console.log(checks);
                 
-                if(checks){
+//                 if(checks){
                 for (var i = 0; i < checks.length; ++i) {
                     var check = $(checks[i]);
  
@@ -108,7 +108,7 @@ jqueryWidget: {
                     alertOrAddError(check.attr('name'), 'You must check at least one checkbox to continue.');
                     return;
                 }
-                }
+//                 }
 
                 var rads = $(dom).find("input[type=radio]");
                 // Sort by name.
