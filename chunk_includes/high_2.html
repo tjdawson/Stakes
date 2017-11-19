@@ -69,8 +69,19 @@ The landlord's floor plan shows the following breakdown of tenants per floor:
 
    var storyDiv = document.getElementById('storyDiv');
 
-   // the array of possible answers
-   var answers_array = Array('Floors A, B, C, D, and E.', 'Floor A.', 'Floors A and C.', 'Floors A and E.', 'Floors C and E.', 'Floor E.', 'Floor F.');
+      // the array of possible answers
+   var answers = Array('Floors A, B, C, D, and E.', 'Floor A.', 
+   							 'Floors A and C.', 'Floors A and E.', 
+   							 'Floors C and E.', 'Floor E.', 'Floor F.');
+
+   var weights = Array(10,16,16,16,16,16,10);
+   
+   var answers_array = Array();
+
+   for ( i = 0; i < 3; i++) {
+   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+   }
+   
    var firefighter_A_answer = 'Firefighter A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var firefighter_B_answer = 'Firefighter B says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var firefighter_C_answer = 'Firefighter C says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')

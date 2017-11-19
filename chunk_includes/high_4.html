@@ -67,8 +67,19 @@
 
    var storyDiv = document.getElementById('storyDiv');
 
-   // the array of possible answers
-   var answers_array = Array('Stores A, B, C, D, and E.', 'Store A.', 'Stores A and C.', 'Stores A and E.', 'Stores C and E.', 'Store E.', 'Store F.');
+      // the array of possible answers
+   var answers = Array('Stores A, B, C, D, and E.', 'Store A.', 
+   							 'Stores A and C.', 'Stores A and E.', 
+   							 'Stores C and E.', 'Store E.', 'Store F.');
+
+   var weights = Array(10,16,16,16,16,16,10);
+   
+   var answers_array = Array();
+
+   for ( i = 0; i < 3; i++) {
+   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+   }
+   
    var firefighter_A_answer = 'Firefighter A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var firefighter_B_answer = 'Firefighter B says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var firefighter_C_answer = 'Firefighter C says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')

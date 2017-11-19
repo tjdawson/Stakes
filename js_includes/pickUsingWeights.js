@@ -19,3 +19,25 @@ function pickUsingWeights(items, weights) {
   for(;randomNumber < ranges[--i][0];);
   return items[i];
 }
+
+function pickUsingWeightsAndRemove(items, weights) {
+  var total = 0;
+  var ranges = weights.slice(0);
+  for(var i = 0, len = weights.length; i < len; i++) {
+    ranges[i] = [total, total += ranges[i]];
+  }
+  var randomNumber = parseInt(Math.random() * total);
+  for(;randomNumber < ranges[--i][0];);
+
+//   return items[i];  
+  var pick = items[i];
+  
+  for(var i = items.length - 1; i >= 0; i--){
+  	if items[i] === pick{
+  		items.splice(i,1);
+  		weights.splice(i,1);
+  	}
+  }
+  
+  return pick;
+}

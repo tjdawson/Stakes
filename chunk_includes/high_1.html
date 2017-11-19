@@ -71,7 +71,18 @@
    var storyDiv = document.getElementById('storyDiv');
 
    // the array of possible answers
-   var answers_array = Array('Restaurants A, B, C, D, and E.', 'Restaurant A.', 'Restaurants A and C.', 'Restaurants A and E.', 'Restaurants C and E.', 'Restaurant E.', 'Restaurant F.');
+   var answers = Array('Restaurants A, B, C, D, and E.', 'Restaurant A.', 
+   							 'Restaurants A and C.', 'Restaurants A and E.', 
+   							 'Restaurants C and E.', 'Restaurant E.', 'Restaurant F.');
+
+   var weights = Array(10,16,16,16,16,16,10);
+   
+   var answers_array = Array();
+
+   for ( i = 0; i < 3; i++) {
+   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+   }
+   	
    var inspector_A_answer = 'Inspector A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var inspector_B_answer = 'Inspector B says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var inspector_C_answer = 'Inspector C says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
