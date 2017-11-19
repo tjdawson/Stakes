@@ -14,7 +14,7 @@ var items = [
         ["sr", "__SendResults__", { }],
     //instructions, consent, training, and end display
         ["instructions", "Form", { html: {include: "instructions.html" } } ],
-        ["consent", "Form", { html: {include: "consent.html" } } ],
+        ["consent", "Form", { html: {include: "consent.html" }, hideProgressBar: true } ],
         ["train_F", "Form", { html: {include: "train_F.html" } } ],
         ["train_M", "Form", { html: {include: "train_M.html" } } ],    
         ["end", "Form", { html: {include: "end.html" }, continueMessage: null} ],
