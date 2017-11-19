@@ -24,7 +24,7 @@
     <li>Location C has 5,</li>
     <li>Location D has 2,</li>
     <li>Location E has 1, and</li>
-    <li>Location F has 0.</li>
+    <li>Location F has 0.</li></ul>
 
 <p>Mark asks three of his friends who live in New York, "Where should I go to view the city?"</p>
 </div>
@@ -69,15 +69,15 @@
 
       // the array of possible answers
    var answers = Array('Locations A, B, C, D, and E.', 'Location A.', 
-   							 'Locations A and C.', 'Locations A and E.', 
-   							 'Locations C and E.', 'Location E.', 'Location F.');
+                  'Locations A and C.', 'Locations A and E.', 
+                  'Locations C and E.', 'Location E.', 'Location F.');
 
    var weights = Array(10,16,16,16,16,16,10);
    
    var answers_array = Array();
 
    for ( i = 0; i < 3; i++) {
-   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+       answers_array.push(pickUsingWeightsAndRemove(answers,weights));
    }
    
    var friend_A_answer = 'Friend A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')

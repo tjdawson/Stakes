@@ -18,13 +18,13 @@
 
 The landlord's floor plan shows the following breakdown of tenants per floor:
     <ul style="list-style: none">
-   <li>Restaurant A has 10 people,</li>
+   <li>Floor A has 10 people,</li>
         <li>Floor B has 8,</li>
         <li>Floor C has 5,</li>
         <li>Floor D has 2,</li>
         <li>Floor E has 1, and</li>
         <li>Floor F has 0.</li>
-
+  </ul>
         <p>The fire chief is deciding where to send his firefighters, becuase there are people trapped but they don't know on which floors. He asks his firefighters, "Where should we go to find the trapped people?"</p>
 
 
@@ -71,15 +71,15 @@ The landlord's floor plan shows the following breakdown of tenants per floor:
 
       // the array of possible answers
    var answers = Array('Floors A, B, C, D, and E.', 'Floor A.', 
-   							 'Floors A and C.', 'Floors A and E.', 
-   							 'Floors C and E.', 'Floor E.', 'Floor F.');
+                  'Floors A and C.', 'Floors A and E.', 
+                  'Floors C and E.', 'Floor E.', 'Floor F.');
 
    var weights = Array(10,16,16,16,16,16,10);
    
    var answers_array = Array();
 
    for ( i = 0; i < 3; i++) {
-   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+       answers_array.push(pickUsingWeightsAndRemove(answers,weights));
    }
    
    var firefighter_A_answer = 'Firefighter A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
@@ -87,17 +87,17 @@ The landlord's floor plan shows the following breakdown of tenants per floor:
    var firefighter_C_answer = 'Firefighter C says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    //
    var answer1 = document.createElement('p');
-   var ans1node = document.createTextNode(inspector_A_answer);
+   var ans1node = document.createTextNode(firefighter_A_answer);
    answer1.appendChild(ans1node);
    storyDiv.appendChild(answer1);
 
    var answer2 = document.createElement('p');
-   var ans2node = document.createTextNode(inspector_B_answer);
+   var ans2node = document.createTextNode(firefighter_B_answer);
    answer2.appendChild(ans2node);
    storyDiv.appendChild(answer2);
 
    var answer3 = document.createElement('p');
-   var ans3node = document.createTextNode(inspector_C_answer);
+   var ans3node = document.createTextNode(firefighter_C_answer);
    answer3.appendChild(ans3node);
    storyDiv.appendChild(answer3);
 
@@ -105,11 +105,11 @@ The landlord's floor plan shows the following breakdown of tenants per floor:
    var answer_report = document.createElement('textarea');
    answer_report.id = "answer_report";
    answer_report.setAttribute("name","answers_reported")
-   answer_report.setAttribute("placeholder","{0},{1},{2}".format(inspector_A_answer,inspector_B_answer,inspector_C_answer));
+   answer_report.setAttribute("placeholder","{0},{1},{2}".format(firefighter_A_answer,firefighter_B_answer,firefighter_C_answer));
 
    // append it to the hidden answer_report div in the body HTML
    document.getElementById("answer_report_div").appendChild(answer_report);
-   document.getElementById("answer_report").append("placeholder","{0},{1},{2}".format(inspector_A_answer,inspector_B_answer,inspector_C_answer));
+   document.getElementById("answer_report").append("placeholder","{0},{1},{2}".format(firefighter_A_answer,firefighter_B_answer,firefighter_C_answer));
 
 
 

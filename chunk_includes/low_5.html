@@ -14,24 +14,21 @@
     <div id="trialDiv">
 
 <div id="storyDiv">
-    <p>Johanna is new to town and wants to try local coffee shops.</p>
-
-
-<p>The 6AM Coffee Guide gives the following ranking for coffee roasteries:</p>
+    <p>Bruce is visiting his friends in Pennsylvania and wants to visit an Amish market. The Pennsylvania Tourism Bureau gives the following ranking of Amish Markets in the county:</p>
     <ul style="list-style: none">
-    <li>Cafe A has 10 points,</li>
-    <li>Cafe B has 8,</li>
-    <li>Cafe C has 5,</li>
-    <li>Cafe D has 2,</li>
-    <li>Cafe E has 1, and</li>
-    <li>Cafe F has 0.</li>
+    <li>Market A has 10 points,</li>
+    <li>Market B has 8,</li>
+    <li>Market C has 5,</li>
+    <li>Market D has 2,</li>
+    <li>Market E has 1, and</li>
+    <li>Market F has 0.</li></ul>
 
-<p>She asks three friends, residents of the town, "Where can I get coffee?"</p>
+<p>Bruce asks his friends, "Where can we go to the market?"</p>
 </div>
 
         <table cellpadding="10" cellspacing="4">
         <tr>
-          <td>Who knows where to get coffee? (Choose all that apply)<br>
+          <td>Who knows where to go to the market? (Choose all that apply)<br>
         </tr>
         <tr class="bordered">
         <td>
@@ -68,16 +65,16 @@
    var storyDiv = document.getElementById('storyDiv');
 
    // the array of possible answers
-   var answers = Array('Cafes A, B, C, D, and E.', 'Cafe A.', 
-   							 'Cafes A and C.', 'Cafes A and E.', 
-   							 'Cafes C and E.', 'Cafe E.', 'Cafe F.');
+   var answers = Array('Markets A, B, C, D, and E.', 'Market A.', 
+                  'Markets A and C.', 'Markets A and E.', 
+                  'Markets C and E.', 'Market E.', 'Market F.');
 
    var weights = Array(10,16,16,16,16,16,10);
    
    var answers_array = Array();
 
    for ( i = 0; i < 3; i++) {
-   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+       answers_array.push(pickUsingWeightsAndRemove(answers,weights));
    }
    
    var friend_A_answer = 'Friend A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')

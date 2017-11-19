@@ -24,7 +24,7 @@
     <li>Cafe C has 5,</li>
     <li>Cafe D has 2,</li>
     <li>Cafe E has 1, and</li>
-    <li>Cafe F has 0.</li>
+    <li>Cafe F has 0.</li></ul>
 
 <p>She asks three friends, residents of the town, "Where can I can get coffee?"</p>
 </div>
@@ -69,15 +69,15 @@
 
       // the array of possible answers
    var answers = Array('Cafes A, B, C, D, and E.', 'Cafe A.', 
-   							 'Cafes A and C.', 'Cafes A and E.', 
-   							 'Cafes C and E.', 'Cafe E.', 'Cafe F.');
+                  'Cafes A and C.', 'Cafes A and E.', 
+                  'Cafes C and E.', 'Cafe E.', 'Cafe F.');
 
    var weights = Array(10,16,16,16,16,16,10);
    
    var answers_array = Array();
 
    for ( i = 0; i < 3; i++) {
-   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+       answers_array.push(pickUsingWeightsAndRemove(answers,weights));
    }
    
    var friend_A_answer = 'Friend A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
