@@ -33,7 +33,7 @@ function pickUsingWeightsAndRemove(items, weights) {
   var pick = items[i];
   
   for(var i = items.length - 1; i >= 0; i--){
-  	if items[i] === pick{
+  	if (items[i] === pick){
   		items.splice(i,1);
   		weights.splice(i,1);
   	}
