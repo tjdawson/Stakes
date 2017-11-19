@@ -29,8 +29,6 @@ jqueryWidget: {
 
         var t = this;
 
-        //
-
         function alertOrAddError(name, error) {
             var ae = $("label." + escape(t.errorCSSClass) + "[for=__ALL_FIELDS__]");
             if (ae.length > 0) {
@@ -84,17 +82,27 @@ jqueryWidget: {
                 }
 
                 var checks = $(dom).find("input[type=checkbox]");
+                var any_checked = false;
                 for (var i = 0; i < checks.length; ++i) {
                     var check = $(checks[i]);
  
                     // Checkboxes with the 'obligatory' class must be checked.
-                    if (! check.attr('checked') && check.hasClass('obligatory')) {
-                        alertOrAddError(check.attr('name'), t.obligatoryCheckboxErrorGenerator(check.attr('name')));
-                        return;
+                    // if (! check.attr('checked') && check.hasClass('obligatory')) {
+                    //     alertOrAddError(check.attr('name'), t.obligatoryCheckboxErrorGenerator(check.attr('name')));
+                    //     return;
+                    // }
+                    if (check.attr('checked')) {
+                        any_checked = true;
                     }
+
 
                     rlines.push([["Field name", check.attr('name')],
                                  ["Field value", check.attr('checked') ? t.checkedValue : t.uncheckedValue]]);
+                }
+
+                if (!any_checked) {
+                    alertOrAddError(check.attr('name'), 'You must check at least one checkbox to continue.');
+                    return;
                 }
 
                 var rads = $(dom).find("input[type=radio]");
@@ -152,7 +160,7 @@ jqueryWidget: {
         this.element.append(dom);
 
         if (this.continueMessage) {
-            this.element.append($("<p>").append($("<a>").attr('href', '').text("\u2192 " + this.continueMessage)
+            this.element.append($("<p align=\"center\">").append($("<a>").attr('href', '').text("\u2192 " + this.continueMessage)
                                                 .addClass(ibex_controller_name_to_css_prefix("Message") + "continue-link")
                                                 .click(handler)));
         }

@@ -13,27 +13,27 @@ var items = [
     // controller to send results early
         ["sr", "__SendResults__", { }],
     //instructions, consent, training, and end display
-        ["instructions", "Form_NoProgressBar", { html: {include: "instructions.html" } } ],
-        ["consent", "Form_NoProgressBar", { html: {include: "consent.html" } } ],
+        ["instructions", "Form", { html: {include: "instructions.html" } } ],
+        ["consent", "Form", { html: {include: "consent.html" }, hideProgressBar: true, countsForProgressBar: false} ],
         ["train_F", "Form", { html: {include: "train_F.html" } } ],
         ["train_M", "Form", { html: {include: "train_M.html" } } ],    
-        ["end", "Form", { html: {include: "end.html" }, continueMessage: null} ],
+        ["end", "Form", { html: {include: "end.html" }, countsForProgressBar: false, continueMessage: null} ],
     // trials
-        ["high_1", "Form_Checkbox_Validation", { html: {include: "high_1.html" } } ],
-        ["high_2", "Form_Checkbox_Validation", { html: {include: "high_2.html" } } ],
-        ["high_3", "Form_Checkbox_Validation", { html: {include: "high_3.html" } } ],
-        ["high_4", "Form_Checkbox_Validation", { html: {include: "high_4.html" } } ],
-        ["high_5", "Form_Checkbox_Validation", { html: {include: "high_5.html" } } ],
-        ["low_1", "Form_Checkbox_Validation", { html: {include: "low_1.html" } } ],
-        ["low_2", "Form_Checkbox_Validation", { html: {include: "low_2.html" } } ],
-        ["low_3", "Form_Checkbox_Validation", { html: {include: "low_3.html" } } ],
-        ["low_4", "Form_Checkbox_Validation", { html: {include: "low_4.html" } } ],
-        ["low_5", "Form_Checkbox_Validation", { html: {include: "low_5.html" } } ],
+        ["high_1", "Form", { html: {include: "high_1.html" } } ],
+        ["high_2", "Form", { html: {include: "high_2.html" } } ],
+        ["high_3", "Form", { html: {include: "high_3.html" } } ],
+        ["high_4", "Form", { html: {include: "high_4.html" } } ],
+        ["high_5", "Form", { html: {include: "high_5.html" } } ],
+        ["low_1", "Form", { html: {include: "low_1.html" } } ],
+        ["low_2", "Form", { html: {include: "low_2.html" } } ],
+        ["low_3", "Form", { html: {include: "low_3.html" } } ],
+        ["low_4", "Form", { html: {include: "low_4.html" } } ],
+        ["low_5", "Form", { html: {include: "low_5.html" } } ],
     // controls
-        ["control_why", "Form_Checkbox_Validation", { html: {include: "control_why.html" } } ],
-        ["control_what", "Form_Checkbox_Validation", { html: {include: "control_what.html" } } ],
-        ["control_when", "Form_Checkbox_Validation", { html: {include: "control_when.html" } } ],
-        ["control_how", "Form_Checkbox_Validation", { html: {include: "control_how.html" } } ],
+        ["control_why", "Form", { html: {include: "control_why.html" } } ],
+        ["control_what", "Form", { html: {include: "control_what.html" } } ],
+        ["control_when", "Form", { html: {include: "control_when.html" } } ],
+        ["control_how", "Form", { html: {include: "control_how.html" } } ],
 
 ];
 
@@ -41,5 +41,4 @@ var defaults = [
     // save reaction time for each Form controller
     "Form", {saveReactionTime: "true"}
 ];
-
 

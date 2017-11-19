@@ -47,7 +47,6 @@
 </div>
 </div>
 
-<!--This div is hidden and stores the reandomized angle values for reporting later-->
 <div id = "answer_report_div" style="visibility: hidden">
 </div>
 <!--end html-->
@@ -69,7 +68,18 @@
    var storyDiv = document.getElementById('storyDiv');
 
    // the array of possible answers
-   var answers_array = Array('Cafes A, B, C, D, and E.', 'Cafe A.', 'Cafes A and C.', 'Cafes A and E.', 'Cafes C and E.', 'Cafe E.', 'Cafe F.');
+   var answers = Array('Cafes A, B, C, D, and E.', 'Cafe A.', 
+   							 'Cafes A and C.', 'Cafes A and E.', 
+   							 'Cafes C and E.', 'Cafe E.', 'Cafe F.');
+
+   var weights = Array(10,16,16,16,16,16,10);
+   
+   var answers_array = Array();
+
+   for ( i = 0; i < 3; i++) {
+   		answers_array.push(pickUsingWeightsAndRemove(answers,weights));
+   }
+   
    var friend_A_answer = 'Friend A says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var friend_B_answer = 'Friend B says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
    var friend_C_answer = 'Friend C says, "{0}{1}'.format(answers_array.splice(Math.floor(Math.random()*answers_array.length),1),'"')
